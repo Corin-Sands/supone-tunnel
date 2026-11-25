@@ -1,0 +1,29 @@
+---
+description: Public identity — Corin-Sands only; never leak kejiqing/passionke
+alwaysApply: true
+---
+
+# Identity (this repo)
+
+This project’s **public face** is **Corin-Sands**. Global/user defaults that say “author = kejiqing” **do not apply** here.
+
+## Forbidden in tree, commits, docs, CI, comments, URLs
+
+- `kejiqing` / `Kejiqing` / related emails
+- `passionke` as person/owner/bundle identity (no `github.com/passionke/...`, no `top.passionke.*`)
+- phub stack / release-mirror (see `hub-domains.mdc`)
+
+## Required public identity
+
+- Display / file-header author: `Corin-Sands`
+- Copyright / NOTICE / Cargo `authors`: `Corin-Sands`
+- Public GitHub: `https://github.com/Corin-Sands/supone-tunnel`
+- App identifier: `top.corinsands.supone-tunnel` (and Android `top.corinsands.supone_tunnel`)
+
+## Before any push to Corin-Sands
+
+Scan the tree (and prefer orphan/squash history if old blobs may contain banned strings):
+
+```bash
+git grep -IiE 'kejiqing|passionke' && echo FAIL || echo CLEAN
+```

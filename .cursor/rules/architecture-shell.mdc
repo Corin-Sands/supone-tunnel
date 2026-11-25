@@ -1,0 +1,24 @@
+---
+description: Module boundaries and REGION build switch for supone-tunnel
+alwaysApply: true
+---
+
+# Architecture & build
+
+## Boundaries
+
+- **`Shell` owns all mihomo writes** — UI / in-app agent / MCP call into Shell; no parallel YAML editors
+- Prefer small PRs inside existing module boundaries
+- Do **not** add a second “just for this case” config, deploy path, or env fork without maintainer alignment (KISS)
+
+## Build / mirror region (single switch)
+
+- Env `REGION=china` → China-friendly mirrors/deps path
+- Env `REGION=else` (or unset per scripts) → internet-universal path
+- Do not invent extra region keys or parallel build scripts
+
+## Secrets
+
+- No real Hub subscription URLs/tokens in tree (`supone.top` placeholders only)
+- Respect `.gitleaks.toml` / pre-commit
+- No phub / `PHUB_*` mirror wiring in CI
