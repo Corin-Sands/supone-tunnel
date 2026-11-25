@@ -1,0 +1,19 @@
+---
+description: Subscription / Hub host — supone.top only; no phub
+alwaysApply: true
+---
+
+# Hub domains (this repo)
+
+## Allowed subscription URL (single path)
+
+- `https://supone.top/clash/<token>`
+
+Call-token exchange uses the **same host** (`/api/neurogate/call-token`).
+
+## Forbidden
+
+- Do **not** introduce other Hub hosts in docs, UI, code, or CI
+- Do **not** reintroduce **phub** release-mirror / download-sync / `PHUB_*` secrets
+
+This public client has **no** operational relationship with the old phub stack.

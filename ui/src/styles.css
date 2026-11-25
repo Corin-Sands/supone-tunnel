@@ -1,0 +1,708 @@
+:root {
+  color: #1c2430;
+  background: #f3f5f8;
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans SC",
+    "Segoe UI", sans-serif;
+  font-size: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.app {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 12px 20px;
+  background: #fff;
+  border-bottom: 1px solid #e3e7ee;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+nav button,
+.actions button,
+.row button,
+form button {
+  border: 1px solid #d0d7e2;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+nav button.active,
+.actions button.primary,
+form button {
+  background: #1f6feb;
+  color: #fff;
+  border-color: #1f6feb;
+}
+
+main {
+  flex: 1;
+  min-height: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: auto;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #e3e7ee;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px 12px;
+  align-items: center;
+}
+
+.settings-grid {
+  grid-template-columns: 160px 1fr;
+  margin-bottom: 12px;
+}
+
+.settings-grid input {
+  width: 100%;
+  min-width: 0;
+}
+
+/* MCP Token 等密文：输入 + 查看明文。Author: Corin-Sands */
+.settings-grid .secret-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+}
+
+.settings-grid .secret-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.settings-grid .secret-row button.ghost {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border: 1px solid #d0d7e2;
+  background: #fff;
+  color: #334155;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.url {
+  word-break: break-all;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+.actions,
+.row,
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* 内核启停：顶栏左上角。Author: Corin-Sands */
+header > .power-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 4px 10px 4px 4px;
+  border: 1px solid #d0d7e2;
+  border-radius: 999px;
+  background: #f7f9fc;
+  color: #475467;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+}
+
+header > .power-switch.is-on {
+  border-color: #b7d4fc;
+  background: #eff6ff;
+  color: #1f6feb;
+}
+
+header > .power-switch:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.power-switch__track {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  background: #c5cedb;
+  transition: background 0.18s ease;
+}
+
+.power-switch.is-on .power-switch__track {
+  background: #1f6feb;
+}
+
+.power-switch__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.18);
+  transition: transform 0.18s ease;
+}
+
+.power-switch.is-on .power-switch__thumb {
+  transform: translateX(18px);
+}
+
+.power-switch__text {
+  min-width: 3em;
+  font-size: 13px;
+}
+
+input[type="text"],
+input[type="url"],
+textarea,
+select {
+  border: 1px solid #d0d7e2;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #fff;
+}
+
+input[type="url"],
+input[type="text"] {
+  min-width: 240px;
+  flex: 1;
+}
+
+textarea.yaml {
+  width: 100%;
+  min-height: 280px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  line-height: 1.45;
+}
+
+.error {
+  color: #a32626;
+  white-space: pre-wrap;
+}
+
+.muted {
+  color: #667085;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid #eef1f6;
+}
+
+.profile--active {
+  margin-top: 8px;
+  padding: 12px;
+  border-top: none;
+  border-radius: 10px;
+  background: #eef5ff;
+  border-left: 3px solid #1f6feb;
+}
+
+.profile--active strong {
+  color: #1f6feb;
+}
+
+.profile-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #1f6feb;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.profile .url {
+  word-break: break-all;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+.group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.group select {
+  flex: 1;
+}
+
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.chat-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #e3e7ee;
+}
+
+.chat-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.chat-history {
+  min-width: 0;
+  flex: 1;
+  max-width: 420px;
+}
+
+.chat-history select {
+  width: 100%;
+  border: 1px solid #d0d7e2;
+  border-radius: 8px;
+  background: #fff;
+  padding: 4px 8px;
+  color: #1c2430;
+}
+
+.chat-history select:disabled {
+  color: #98a2b3;
+  background: #f6f8fb;
+}
+
+.chat-bar button.ghost {
+  border: 0;
+  background: transparent;
+  color: #1f6feb;
+  padding: 4px 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.chat-bar button.ghost:disabled {
+  color: #98a2b3;
+  cursor: default;
+}
+
+form button.danger {
+  background: #d92d20;
+  border-color: #d92d20;
+  color: #fff;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.chat {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+}
+
+.chat-empty {
+  margin: auto;
+  color: #667085;
+}
+
+.bubble {
+  max-width: min(720px, 86%);
+  padding: 10px 12px;
+  border-radius: 12px;
+  line-height: 1.5;
+}
+
+.md > :first-child {
+  margin-top: 0;
+}
+
+.md > :last-child {
+  margin-bottom: 0;
+}
+
+.md p,
+.md ul,
+.md ol,
+.md pre,
+.md blockquote {
+  margin: 0.45em 0;
+}
+
+.md ul,
+.md ol {
+  padding-left: 1.25em;
+}
+
+.md code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background: rgba(15, 23, 42, 0.08);
+  border-radius: 4px;
+  padding: 0.05em 0.35em;
+}
+
+.md pre {
+  overflow: auto;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+.md pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.md a {
+  color: #1f6feb;
+}
+
+.md blockquote {
+  margin-left: 0;
+  padding-left: 10px;
+  border-left: 3px solid #d0d7e2;
+  color: #475467;
+}
+
+.md table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+}
+
+.md th,
+.md td {
+  border: 1px solid #e3e7ee;
+  padding: 4px 8px;
+  text-align: left;
+}
+
+.md h1,
+.md h2,
+.md h3,
+.md h4 {
+  font-size: 1em;
+  margin: 0.6em 0 0.25em;
+}
+
+.bubble.user .md a {
+  color: #fff;
+}
+
+.bubble.user .md code {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.bubble.user .md blockquote {
+  border-left-color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: #1f6feb;
+  color: #fff;
+}
+
+.bubble.assistant {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #f6f8fb;
+  border: 1px solid #e3e7ee;
+}
+
+.chat-tool {
+  align-self: stretch;
+  max-width: min(720px, 100%);
+}
+
+.chat-thinking {
+  align-self: flex-start;
+  padding: 2px 0;
+}
+
+.composer {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  padding: 12px;
+  border-top: 1px solid #e3e7ee;
+}
+
+.chat-input {
+  flex: 1;
+  width: auto;
+  min-height: 40px;
+  max-height: 120px;
+  resize: none;
+  line-height: 1.45;
+  font-family: inherit;
+}
+
+.chat-error {
+  margin: 0 12px 12px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+/* 流量图：运行/停止两套视觉。Author: Corin-Sands */
+.traffic-chart {
+  margin: 0 0 14px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e3e7ee;
+  background: #f8fafc;
+}
+
+.traffic-chart--running {
+  border-color: #c9daf8;
+  background: linear-gradient(180deg, #f5f9ff 0%, #f8fafc 100%);
+}
+
+.traffic-chart--stopped {
+  border-style: dashed;
+  border-color: #d0d7e2;
+  background: #f3f5f8;
+  opacity: 0.92;
+}
+
+.traffic-chart__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.traffic-chart__badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 1px 8px;
+  border-radius: 999px;
+}
+
+.traffic-chart__badge--running {
+  background: #1f6feb;
+  color: #fff;
+}
+
+.traffic-chart__badge--stopped {
+  background: #e3e7ee;
+  color: #667085;
+}
+
+.traffic-chart__reset {
+  border: 1px solid #c9daf8;
+  background: #fff;
+  color: #1f6feb;
+  font-size: 12px;
+  padding: 1px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.traffic-chart__reset:hover {
+  background: #eef4ff;
+}
+
+.traffic-chart__rates {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+.traffic-chart--running .traffic-chart__up {
+  color: #c2410c;
+}
+
+.traffic-chart--running .traffic-chart__down {
+  color: #1f6feb;
+}
+
+.traffic-chart--stopped .traffic-chart__rates {
+  color: #98a2b3;
+}
+
+.traffic-chart__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 640 / 168;
+  max-height: 200px;
+  overflow: visible;
+  touch-action: none;
+  user-select: none;
+}
+
+.traffic-chart__svg--selectable {
+  cursor: crosshair;
+}
+
+.traffic-chart__brush {
+  fill: rgba(31, 111, 235, 0.16);
+  stroke: #1f6feb;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.traffic-chart__grid {
+  stroke: #e3e7ee;
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.traffic-chart--stopped .traffic-chart__grid {
+  stroke: #d8dee8;
+}
+
+.traffic-chart__axis {
+  stroke: #c5ccd8;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.traffic-chart__tick {
+  stroke: #c5ccd8;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.traffic-chart__axis-label {
+  fill: #667085;
+  font-size: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.traffic-chart__axis-label--y {
+  text-anchor: end;
+}
+
+.traffic-chart__axis-label--x {
+  text-anchor: middle;
+}
+
+.traffic-chart__area--up {
+  fill: rgba(194, 65, 12, 0.12);
+}
+
+.traffic-chart__area--down {
+  fill: rgba(31, 111, 235, 0.14);
+}
+
+.traffic-chart__line {
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.traffic-chart__line--up {
+  stroke: #c2410c;
+}
+
+.traffic-chart__line--down {
+  stroke: #1f6feb;
+}
+
+.traffic-chart__line--idle {
+  stroke: #98a2b3;
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+}
+
+.traffic-chart__hint {
+  margin: 6px 0 0;
+  color: #667085;
+  font-size: 12px;
+}

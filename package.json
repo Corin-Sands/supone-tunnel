@@ -1,0 +1,15 @@
+{
+  "name": "supone-tunnel",
+  "private": true,
+  "version": "0.2.8",
+  "scripts": {
+    "tauri": "tauri",
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "fetch-mihomo": "node scripts/fetch-mihomo.mjs",
+    "android:build": "node scripts/fetch-mihomo.mjs x86_64-linux-android && tauri android build --debug --target x86_64 --apk"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}
