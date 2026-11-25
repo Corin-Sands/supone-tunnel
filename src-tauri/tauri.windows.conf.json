@@ -1,0 +1,19 @@
+{
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Supone Tunnel",
+        "width": 980,
+        "height": 700,
+        "resizable": true,
+        "create": true
+      }
+    ]
+  },
+  "bundle": {
+    "resources": {
+      "resources/wintun.dll": "wintun.dll"
+    }
+  }
+}

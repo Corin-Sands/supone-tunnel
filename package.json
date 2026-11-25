@@ -1,0 +1,17 @@
+{
+  "name": "supone-tunnel",
+  "private": true,
+  "version": "0.2.9",
+  "scripts": {
+    "tauri": "tauri",
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "fetch-mihomo": "node scripts/fetch-mihomo.mjs",
+    "fetch-geodata": "node scripts/fetch-geodata.mjs",
+    "fetch-wintun": "node scripts/fetch-wintun.mjs",
+    "android:build": "node scripts/fetch-mihomo.mjs x86_64-linux-android && node scripts/fetch-geodata.mjs && tauri android build --debug --target x86_64 --apk"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

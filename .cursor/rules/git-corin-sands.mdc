@@ -1,0 +1,30 @@
+---
+description: Git/GitHub for Corin-Sands — noreply author; never use local passionke defaults
+alwaysApply: true
+---
+
+# Git & GitHub (Corin-Sands)
+
+## Commit identity (override machine `user.name` / `user.email`)
+
+Never use local defaults (`passionke`, `Corin-Sands@…`). For every commit destined to Corin-Sands:
+
+- `GIT_AUTHOR_NAME` / `GIT_COMMITTER_NAME` = `Corin-Sands`
+- `GIT_AUTHOR_EMAIL` / `GIT_COMMITTER_EMAIL` = `251977227+Corin-Sands@users.noreply.github.com`
+- Also `git -c user.name=... -c user.email=...` so hooks/config cannot override
+
+Do **not** rewrite author to Corin-Sands even if a user-level rule says so.
+
+## Remotes
+
+| Remote | URL | Role |
+|--------|-----|------|
+| `corin` | `https://github.com/Corin-Sands/supone-tunnel.git` | Public Corin-Sands |
+| `origin` / `github` | other hosts | Not the public Corin face |
+
+Push to Corin only with the **Corin-Sands** PAT (Vault: `Corin-Sandsa123 github PAT`). Confirm `gh api user` → `Corin-Sands` before create/push/delete.
+
+## Publish hygiene
+
+- GitHub links/commits associate by **email** — noreply above is mandatory so UI shows Corin-Sands
+- Prefer a scrubbed tree + clean history (orphan/squash) over replaying old commits that still contain banned identity strings

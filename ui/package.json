@@ -1,0 +1,28 @@
+{
+  "name": "supone-tunnel-ui",
+  "private": true,
+  "version": "0.2.8",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2",
+    "dompurify": "^3.4.17",
+    "marked": "^18.1.2",
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "devDependencies": {
+    "@types/dompurify": "^3.0.5",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-legacy": "^6.1.1",
+    "@vitejs/plugin-react": "^4",
+    "terser": "^5.51.2",
+    "typescript": "^5",
+    "vite": "^6"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Supone Tunnel",
+  "version": "0.2.9",
+  "identifier": "top.corinsands.supone-tunnel",
+  "build": {
+    "beforeDevCommand": "node scripts/fetch-mihomo.mjs && node scripts/fetch-geodata.mjs && node scripts/fetch-wintun.mjs && npm --prefix ui run dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "node scripts/fetch-mihomo.mjs && node scripts/fetch-geodata.mjs && node scripts/fetch-wintun.mjs && npm --prefix ui run build",
+    "frontendDist": "../ui/dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Supone Tunnel",
+        "width": 980,
+        "height": 700,
+        "resizable": true,
+        "create": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "externalBin": [
+      "binaries/mihomo"
+    ],
+    "resources": {
+      "resources/country.mmdb": "country.mmdb"
+    },
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico",
+      "icons/icon.png"
+    ]
+  }
+}
